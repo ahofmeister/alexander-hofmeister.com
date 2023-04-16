@@ -1,3 +1,3 @@
 export default function Page() {
-    return <>Hi there</>
+    return <>Coming soon..</>
 }
