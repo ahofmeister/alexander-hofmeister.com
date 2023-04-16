@@ -35,7 +35,8 @@ export default makeSource({
       [
         rehypePrettyCode,
         {
-          theme: 'one-dark-pro',
+          // theme: 'dracula',
+          theme: 'github-dark',
           onVisitHighlightedLine(node) {
             node.properties.className.push("line--highlighted")
           },

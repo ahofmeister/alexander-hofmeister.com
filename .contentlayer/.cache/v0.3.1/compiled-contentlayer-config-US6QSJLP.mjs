@@ -34,7 +34,8 @@ var contentlayer_config_default = makeSource({
       [
         rehypePrettyCode,
         {
-          theme: "one-dark-pro",
+          // theme: 'dracula',
+          theme: "github-dark",
           onVisitHighlightedLine(node) {
             node.properties.className.push("line--highlighted");
           }
@@ -47,4 +48,4 @@ export {
   Post,
   contentlayer_config_default as default
 };
-//# sourceMappingURL=compiled-contentlayer-config-6N6RULPO.mjs.map
+//# sourceMappingURL=compiled-contentlayer-config-US6QSJLP.mjs.map
