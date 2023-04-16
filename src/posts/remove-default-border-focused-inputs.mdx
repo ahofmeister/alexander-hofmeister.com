@@ -1,0 +1,12 @@
+---
+title: Remove red default border from focused inputs
+publishedAt: 2023-03-08
+---
+
+Google Chrome adds per default a red border around an input for
+`focus-visible`. To remove it, just add the next CSS to your styles.
+
+```css
+input:focus-visible {
+  outline: none;
+}
