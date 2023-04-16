@@ -2,7 +2,6 @@
 
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
-import Head from '../head'
 import Link from 'next/link'
 
 async function getData() {
@@ -17,10 +16,6 @@ export default async function Home() {
 
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
-      <Head>
-        <title>Contentlayer Blog Example</title>
-      </Head>
-
       <h1 className="mb-8 text-3xl font-bold">Blog</h1>
 
       {posts.map((post, id) => (

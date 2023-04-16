@@ -1,5 +1,6 @@
 import '../styles/globals.css'
 import Link from 'next/link'
+import Head from './head'
 
 const Navbar = () => <nav className="sticky top-0 border-b border-b-gray">
   <div className="flex items-center justify-between mx-auto p-4">
@@ -21,6 +22,7 @@ const Navbar = () => <nav className="sticky top-0 border-b border-b-gray">
 
 export default async function RootLayout({ children }) {
   return (<html lang="en">
+  <Head/>
   <body>
   <Navbar/>
   <main className={'w-full mx-auto'}>
