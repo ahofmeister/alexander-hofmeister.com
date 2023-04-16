@@ -32,7 +32,7 @@ const PostLayout = ({ params }) => {
         </time>
         <h1>{post.title}</h1>
       </div>
-      <MDXContent />
+      <MDXContent/>
 
     </article>
   )

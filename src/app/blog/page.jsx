@@ -2,28 +2,13 @@
 
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
-import Head from 'next/head'
+import Head from '../head'
 import Link from 'next/link'
 
 async function getData() {
   return allPosts.sort((a, b) => {
     return compareDesc(new Date(a.date), new Date(b.date))
   })
-}
-
-function PostCard(post) {
-  return (
-    <div className="mb-6">
-      <time dateTime={post.publishedAt} className="block text-sm text-slate-600">
-        {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
-      </time>
-      <h2 className="text-lg">
-        <Link href={post.url} className={"text-blue-700 hover:text-blue-900"}>
-          {post.title}
-        </Link>
-      </h2>
-    </div>
-  )
 }
 
 export default async function Home() {
@@ -43,3 +28,16 @@ export default async function Home() {
       ))}
     </div>)
 }
+
+const PostCard = post => (
+  <div className="mb-6">
+    <time dateTime={post.publishedAt} className="block text-sm text-slate-600">
+      {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
+    </time>
+    <h2 className="text-lg">
+      <Link href={post.url} className={"text-blue-700 hover:text-blue-900"}>
+        {post.title}
+      </Link>
+    </h2>
+  </div>
+)
