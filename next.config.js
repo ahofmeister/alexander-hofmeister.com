@@ -1,7 +1,12 @@
-module.exports = async () => {
-  return {
-    experimental: {
-      appDir: true,
-    }
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+  experimental: {
+    appDir: true,
   }
+}
+
+module.exports = async () => {
+  return nextConfig
 }

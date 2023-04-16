@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        background-color: #1C1C1C;
+        background-color: #18181B;
         color: white;
     }
 }
@@ -14,7 +14,7 @@ div[data-rehype-pretty-code-fragment] {
     overflow: hidden;
 
     /* stylist preferences */
-    background-color: rgb(255 255 255 / 0.1);
+    background-color: #212126;
     border-radius: 0.5rem;
 }
 
