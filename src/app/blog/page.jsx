@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 async function getData() {
   return allPosts.sort((a, b) => {
-    return compareDesc(new Date(a.date), new Date(b.date))
+    return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
   })
 }
 
