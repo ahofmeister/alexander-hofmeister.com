@@ -1,5 +1,3 @@
-// pages/index.js
-
 import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'

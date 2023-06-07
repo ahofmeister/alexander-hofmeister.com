@@ -1,3 +1,3 @@
 export default async function About() {
-    return <>About</>
+    return <>About me</>
 }
