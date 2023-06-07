@@ -14,8 +14,6 @@ export default async function Home() {
 
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
-      <h1 className="mb-8 text-3xl font-bold">Blog</h1>
-
       {posts.map((post, id) => (
         <PostCard key={id} {...post} />
       ))}
