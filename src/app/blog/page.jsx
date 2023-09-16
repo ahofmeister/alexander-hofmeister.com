@@ -2,25 +2,25 @@ import { compareDesc, format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
 import Link from 'next/link'
 
-async function getData() {
+async function getPosts() {
   return allPosts.sort((a, b) => {
     return compareDesc(new Date(a.publishedAt), new Date(b.publishedAt))
   })
 }
 
-export default async function Home() {
+export default async function Blog() {
 
-  const posts = await getData()
+  const posts = await getPosts()
 
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
       {posts.map((post, id) => (
-        <PostCard key={id} {...post} />
+        <Post key={id} {...post} />
       ))}
     </div>)
 }
 
-const PostCard = post => (
+const Post = post => (
   <div className="mb-6">
     <time dateTime={post.publishedAt} className="block text-sm text-slate-600">
       {format(parseISO(post.publishedAt), 'LLLL d, yyyy')}
