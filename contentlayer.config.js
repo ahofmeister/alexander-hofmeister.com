@@ -23,7 +23,7 @@ export const Post = defineDocumentType(() => ({
     url: {
       type: 'string',
       resolve: (post) => {
-        return `/blog/${(post._raw.flattenedPath)}`
+        return `/blog/${post._raw.flattenedPath}`
       },
     },
   },

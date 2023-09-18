@@ -17,11 +17,11 @@ export const generateMetadata = ({ params }) => {
 const PostLayout = ({ params }) => {
   const project = allProjects.find((project) => project._raw.flattenedPath.endsWith(params.slug))
 
-  const MDXContent = useMDXComponent(project.body.code)
-
   if (!project) {
     notFound()
   }
+
+  const MDXContent = useMDXComponent(project.body.code)
 
   return (
     <article className="py-8 mx-auto max-w-xl">

@@ -18,11 +18,11 @@ export const generateStaticParams = async () => allPosts.map((post) => ({ slug: 
 const PostLayout = ({ params }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath.endsWith(params.slug))
 
-  const MDXContent = useMDXComponent(post.body.code)
-
   if (!post) {
     notFound()
   }
+
+  const MDXContent = useMDXComponent(post.body.code)
 
   return (
     <article className="py-8 mx-auto max-w-xl">
