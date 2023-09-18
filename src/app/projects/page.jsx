@@ -1,24 +1,21 @@
-const { Client } = require('@notionhq/client')
+import { allProjects } from 'contentlayer/generated'
+import Link from 'next/link'
 
 export const revalidate = 3600 * 2
 
-async function getProjects() {
-  const notion = new Client({ auth: process.env.NOTION_API_KEY })
-
-  const response = await notion.databases.query({ database_id: process.env.NOTION_PROJECTS_DB })
-  return response.results
-}
-
 export default async function Projects() {
 
-  const projects = await getProjects()
+  const projects = allProjects
 
   return (
     <div className="mx-auto max-w-2xl py-16 text-center">
-      {projects.map(project => {
-        // eslint-disable-next-line react/jsx-key
-        return <div>{project.properties.title.title[0].plain_text}</div>
-      })}
+      {projects.map(project => <div key={project.title}>
+        <h2 className="text-lg">
+          <Link href={project.url} className={'text-blue-700 hover:text-blue-900'}>
+            {project.title}
+          </Link>
+        </h2>
+      </div>)}
 
     </div>)
 }

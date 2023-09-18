@@ -1,11 +1,11 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
 import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
-import moonlight from "./src/assets/moonlight-ii.json"
+import moonlight from './src/assets/moonlight-ii.json'
 
 export const Post = defineDocumentType(() => ({
   name: 'Post',
-  filePathPattern: `**/*.mdx`,
+  filePathPattern: `**/posts/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
@@ -22,10 +22,32 @@ export const Post = defineDocumentType(() => ({
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => `/blog/${post._raw.flattenedPath}`,
+      resolve: (post) => {
+        return `/blog/${(post._raw.flattenedPath)}`
+      },
     },
   },
 }))
+
+export const Project = defineDocumentType(() => ({
+  name: 'Project',
+  filePathPattern: `**/projects/*.mdx`,
+  contentType: 'mdx',
+  fields: {
+    title: {
+      type: 'string',
+      description: 'The title of the post',
+      required: true,
+    },
+  },
+  computedFields: {
+    url: {
+      type: 'string',
+      resolve: (project) => `/${project._raw.flattenedPath}`,
+    },
+  },
+}))
+
 
 const options = {
   theme: moonlight,
@@ -35,8 +57,8 @@ const options = {
 }
 
 export default makeSource({
-  contentDirPath: 'src/posts',
-  documentTypes: [Post],
+  contentDirPath: 'src/content',
+  documentTypes: [Post, Project],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [

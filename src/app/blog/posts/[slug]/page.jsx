@@ -1,22 +1,22 @@
-import { format, parseISO } from 'date-fns'
 import { allPosts } from 'contentlayer/generated'
-import { notFound } from 'next/navigation'
 import { useMDXComponent } from 'next-contentlayer/hooks'
+import { notFound } from 'next/navigation'
+import { format, parseISO } from 'date-fns'
 
 export const generateStaticParams = async () => allPosts.map((post) => ({ slug: post._raw.flattenedPath }))
 
-export const generateMetadata = ({ params }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-
-  if (!post) {
-    notFound()
-  }
-
-  return { title: post.title }
-}
+// export const generateMetadata = ({ params }) => {
+//   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+//
+//   if (!post) {
+//     notFound()
+//   }
+//
+//   return { title: post.title }
+// }
 
 const PostLayout = ({ params }) => {
-  const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
+  const post = allPosts.find((post) => post._raw.flattenedPath.endsWith(params.slug))
 
   const MDXContent = useMDXComponent(post.body.code)
 
