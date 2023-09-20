@@ -39,6 +39,11 @@ export const Project = defineDocumentType(() => ({
       description: 'The title of the post',
       required: true,
     },
+    summary: {
+      type: 'string',
+      description: 'A brief description of the project',
+      required: true
+    }
   },
   computedFields: {
     url: {
