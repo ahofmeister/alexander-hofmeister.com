@@ -7,7 +7,7 @@ export default async function Projects() {
     <div className={'m-16 bg-red-500'}>
       <div className="grid grid-cols-3 gap-12">
         {allProjects.map(project =>
-          <Link href={project.url} className={'text-blue-700 hover:text-blue-900'}>
+          <Link key={project.title} href={project.url} className={'text-blue-700 hover:text-blue-900'}>
             <div className={'border-gray border p-5'} key={project.title}>
               <h2 className="text-xl">
                 {project.title}
