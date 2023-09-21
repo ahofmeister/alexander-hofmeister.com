@@ -7,16 +7,16 @@ export default async function Projects() {
     <div className={'m-16 bg-red-500'}>
       <div className="grid grid-cols-3 gap-12">
         {allProjects.map(project =>
-          <div className={'border-gray border p-5'} key={project.title}>
-            <h2 className="text-xl">
-              <Link href={project.url} className={'text-blue-700 hover:text-blue-900'}>
+          <Link href={project.url} className={'text-blue-700 hover:text-blue-900'}>
+            <div className={'border-gray border p-5'} key={project.title}>
+              <h2 className="text-xl">
                 {project.title}
-              </Link>
-            </h2>
-            <div className={"mt-2"}>
-              {project.summary}
+              </h2>
+              <div className={'mt-2'}>
+                {project.summary}
+              </div>
             </div>
-          </div>)}
+          </Link>)}
 
       </div>
     </div>)
