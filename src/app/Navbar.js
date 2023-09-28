@@ -15,6 +15,7 @@ const Navbar = () => {
     <div className="flex justify-center p-4">
       <NavbarLink href={'/about'} label={'About'} currentPath={currentPath}/>
       <NavbarLink href={'/blog'} label={'Blog'} currentPath={currentPath}/>
+      <NavbarLink href={'/snippets'} label={'Snippets'} currentPath={currentPath}/>
       <NavbarLink href={'/projects'} label={'Projects'} currentPath={currentPath}/>
     </div>
   </nav>

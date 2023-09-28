@@ -2,19 +2,19 @@ import { allProjects } from 'contentlayer/generated'
 import { notFound } from 'next/navigation'
 import { useMDXComponent } from 'next-contentlayer/hooks'
 
-export const generateStaticParams = async () => allProjects.map((post) => ({ slug: post._raw.flattenedPath }))
+export const generateStaticParams = async () => allProjects.map((project) => ({ slug: project._raw.flattenedPath }))
 
 export const generateMetadata = ({ params }) => {
-  const post = allProjects.find((post) => post._raw.flattenedPath.endsWith(params.slug))
+  const project = allProjects.find((project) => project._raw.flattenedPath.endsWith(params.slug))
 
-  if (!post) {
+  if (!project) {
     notFound()
   }
 
-  return { title: post.title }
+  return { title: project.title }
 }
 
-const PostLayout = ({ params }) => {
+const ProjectLayout = ({ params }) => {
   const project = allProjects.find((project) => project._raw.flattenedPath.endsWith(params.slug))
 
   if (!project) {
@@ -33,4 +33,4 @@ const PostLayout = ({ params }) => {
   )
 }
 
-export default PostLayout
+export default ProjectLayout

@@ -3,27 +3,27 @@ import remarkGfm from 'remark-gfm'
 import rehypePrettyCode from 'rehype-pretty-code'
 import moonlight from './src/assets/moonlight-ii.json'
 
-export const Post = defineDocumentType(() => ({
-  name: 'Post',
-  filePathPattern: `**/posts/*.mdx`,
+export const Snippet = defineDocumentType(() => ({
+  name: 'Snippet',
+  filePathPattern: `**/snippets/*.mdx`,
   contentType: 'mdx',
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the post',
+      description: 'The title of the snippet',
       required: true,
     },
     publishedAt: {
       type: 'date',
-      description: 'The date of the post',
+      description: 'The date the snippet was published at',
       required: true,
     },
   },
   computedFields: {
     url: {
       type: 'string',
-      resolve: (post) => {
-        return `/blog/${post._raw.flattenedPath}`
+      resolve: (snippet) => {
+        return `/${snippet._raw.flattenedPath}`
       },
     },
   },
@@ -36,7 +36,7 @@ export const Project = defineDocumentType(() => ({
   fields: {
     title: {
       type: 'string',
-      description: 'The title of the post',
+      description: 'The title of the project',
       required: true,
     },
     summary: {
@@ -63,7 +63,7 @@ const options = {
 
 export default makeSource({
   contentDirPath: 'src/content',
-  documentTypes: [Post, Project],
+  documentTypes: [Snippet, Project],
   mdx: {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
