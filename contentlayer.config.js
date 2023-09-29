@@ -18,6 +18,12 @@ export const Snippet = defineDocumentType(() => ({
       description: 'The date the snippet was published at',
       required: true,
     },
+    tags: {
+      type: 'list',
+      of: { type: 'string' },
+      description: "A list of common technical keywords for this snippet",
+      required: true
+    }
   },
   computedFields: {
     url: {
