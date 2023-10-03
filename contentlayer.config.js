@@ -49,6 +49,11 @@ export const Project = defineDocumentType(() => ({
       type: 'string',
       description: 'A brief description of the project',
       required: true
+    },
+    externalUrl: {
+      type: 'string',
+      description: 'The url to the hosted project',
+      required: false
     }
   },
   computedFields: {
